@@ -1,4 +1,3 @@
-# danted_server
 <h2>Danted Socks5 一键安装脚本</h2>
 <h3>******安装选项</h3>
 
