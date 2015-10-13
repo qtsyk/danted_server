@@ -349,7 +349,7 @@ EOF
 chmod +x /etc/init.d/danted
 [ -n "$(grep -i CentOS /etc/issue)" ]  && chkconfig --add danted
 [ -n "$(egrep -i 'Debian|Ubuntu' /etc/issue)" ] && update-rc.d danted defaults
-uname -a | grep  -q  "x86_64" && cp /lib/security/pam_pwdfile.so /lib64/security/ >/dev/null
+uname -a | grep  -q  "x86_64"  &&  [ -n "$(grep -i CentOS /etc/issue)" ]  && cp /lib/security/pam_pwdfile.so /lib64/security/ >/dev/null
 rm /usr/bin/danted -f
 ln -s /etc/danted/sbin/sockd /usr/bin/danted
 service danted start
