@@ -137,13 +137,13 @@ cd /tmp/danted
 
 #start-stop-daemon
 if [ -z "$(command -v start-stop-daemon)" ];then
-wget http://developer.axis.com/download/distribution/apps-sys-utils-start-stop-daemon-IR1_9_18-2.tar.gz
+wget http://repo.kvscan.com/danted/apps-sys-utils-start-stop-daemon-IR1_9_18-2.tar.gz
 tar zxvf apps-sys-utils-start-stop-daemon-IR1_9_18-2.tar.gz
 gcc apps/sys-utils/start-stop-daemon-IR1_9_18-2/start-stop-daemon.c -o start-stop-daemon -o /usr/local/sbin/start-stop-daemon
 fi
 #libpam-pwdfile
 if [ ! -s /lib/security/pam_pwdfile.so ];then
-wget --no-check-certificate https://github.com/tiwe-de/libpam-pwdfile/archive/master.zip -O master.zip
+wget http://repo.kvscan.com/danted/master.zip -O master.zip
 unzip master.zip
 cd libpam-pwdfile-master/
 make && make install
@@ -151,7 +151,7 @@ cd ../
 fi
 
 if [ ! -s /etc/danted/sbin/sockd ] || [ -z "$(/etc/danted/sbin/sockd -v | grep "$VERSION")" ];then
-wget http://www.inet.no/dante/files/dante-1.3.2.tar.gz
+wget http://repo.kvscan.com/danted/dante-1.3.2.tar.gz
 tar zxvf dante*
 cd dante*
 ./configure --with-sockd-conf=${CONFIGFILE} --prefix=/etc/danted
