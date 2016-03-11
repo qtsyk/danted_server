@@ -299,7 +299,7 @@ add_user(){
     ( [ -z "$User" ] || [ -z "$Passwd" ] ) && echo " Error: User or password can't be blank" && return 0 
     /usr/bin/htpasswd -d -b /etc/danted/sockd.passwd ${User} ${Passwd}
 }
-del_uer(){
+del_user(){
     User=$1
     [ -z "$User" ] && echo " Error: User Name can't be blank" && return 0 
     /usr/bin/htpasswd -D /etc/danted/sockd.passwd ${User}
